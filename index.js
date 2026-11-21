@@ -6,11 +6,8 @@ const { Connection, clusterApiUrl } = require("@solana/web3.js");
 
 const app = express();
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
-app.get('/dashboard', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
-});
-// CORS - Dashboard başka porttan da çalışsın diye
+
+// CORS - EN ÜSTTE olmalı
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
@@ -19,15 +16,23 @@ app.use((req, res, next) => {
   next();
 });
 
-// Dashboard static dosyası
 app.use(express.static(path.join(__dirname, 'public')));
-const PORT = 3000;
-const solConnection = new Connection(clusterApiUrl("devnet"), "confirmed");
 
-// Dashboard sayfası
 app.get('/dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
 });
+
+app.get("/health", async (req, res) => {
+  try {
+    await pool.query("SELECT 1");
+    res.json({ status: "healthy", database: "connected", serverTime: new Date().toISOString() });
+  } catch (e) {
+    res.status(500).json({ status: "unhealthy", database: "disconnected" });
+  }
+});
+
+const PORT = process.env.PORT || 3000;
+const solConnection = new Connection(clusterApiUrl("devnet"), "confirmed");
 initDB();
 
 async function addLedger(event) {
@@ -40,12 +45,7 @@ async function addLedger(event) {
 
 app.get("/", (req, res) => res.send("ARCSTRA Economic Operating System v3.1"));
 
-app.get("/health", async (req, res) => {
-  try {
-    const result = await pool.query("SELECT NOW() as now");
-    res.json({ status: "healthy", database: "connected", serverTime: result.rows[0].now });
-  } catch (err) { res.status(500).json({ status: "error", database: "disconnected" }); }
-});
+
 
 app.post("/wallet/create", async (req, res) => {
   try {
