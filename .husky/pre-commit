@@ -1,0 +1,14 @@
+#!/bin/sh
+
+echo "🔍 Secret taraması yapılıyor..."
+
+DIFF=$(git diff --cached)
+
+echo "$DIFF" | grep -v ".husky/pre-commit" | grep -E "CIRCLE_API_KEY=|ENTITY_SECRET="
+
+if [ $? -eq 0 ]; then
+  echo "❌ SECRET BULUNDU! Commit iptal edildi."
+  exit 1
+fi
+
+echo "✅ Temiz — commit devam ediyor"

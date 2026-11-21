@@ -1,0 +1,34 @@
+# ARCSTRA Development Rules
+
+Always read:
+
+1. AGENT_MEMORY.md
+2. docs/architecture.md
+3. docs/flow.md
+
+Before making architectural claims:
+
+- Verify implementation exists.
+- Never assume features are completed.
+- Keep documentation synchronized.
+
+Current MVP Goal:
+
+Wallet Creation
+→ Transaction
+→ Event Processing
+→ Ledger Update
+→ Dashboard Visibility
+
+Current Circle Product:
+
+- Wallets
+
+Planned Circle Products:
+
+- USDC
+- Bridge Kit
+
+Project Status:
+
+MVP under development.

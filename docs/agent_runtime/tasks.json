@@ -1,0 +1,9 @@
+{
+  "task_id": 1,
+  "requester": "GrantAgent",
+  "worker": "ResearchAgent",
+  "description": "Find Circle grant opportunities",
+  "reward": 10,
+  "status": "completed",
+  "paid": true
+}

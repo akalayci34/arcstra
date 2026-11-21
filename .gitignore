@@ -1,0 +1,16 @@
+﻿node_modules/
+.env
+arcstra-db-data/
+
+*-keypair.json
+*.docx
+ARCSTRA_BACKUP.zip
+ciphertext.txt
+recovery/
+data/identities.json
+**/wallets.json
+**/agent_wallets.json
+**/agent_state.json
+**/escrow.json
+**/ledger.json
+**/payment_intents.json

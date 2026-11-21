@@ -1,0 +1,9 @@
+﻿{
+  "name": "@arcstra/mcp-coordination-server",
+  "version": "1.0.0",
+  "description": "Rail-agnostic Model Context Protocol (MCP) server for ARCSTRA ACS-01 Coordination OS",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": { "build": "tsc", "start": "node dist/index.js" },
+  "dependencies": { "@modelcontextprotocol/sdk": "^1.0.0", "ethers": "^6.13.0", "zod": "^3.23.8", "dotenv": "^16.4.5" }
+}

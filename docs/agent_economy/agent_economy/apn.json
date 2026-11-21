@@ -1,0 +1,29 @@
+{
+  "network": "APN-v2",
+  "mode": "event-driven",
+
+  "agents": {
+    "ScoutAgent": {
+      "wallet": "wallet_scout",
+      "permissions": ["PAY", "REQUEST"]
+    },
+    "GrantAgent": {
+      "wallet": "wallet_grant",
+      "permissions": ["PAY"]
+    },
+    "ResearchAgent": {
+      "wallet": "wallet_research",
+      "permissions": ["REQUEST"]
+    },
+    "PartnershipAgent": {
+      "wallet": "wallet_partnership",
+      "permissions": ["PAY", "SETTLE"]
+    }
+  },
+
+  "rules": {
+    "allow_cross_agent_payments": true,
+    "require_ledger_commit": true,
+    "webhook_driven_state_sync": true
+  }
+}

@@ -1,0 +1,51 @@
+﻿# ARCSTRA (drarcstra.com)
+> Coordination Operating System for the Agentic Economy. LLMs propose, deterministic systems authorize.
+
+## Overview
+- Canonical Domain: https://drarcstra.com
+- Contact Email: arcstra@drarcstra.com
+- Founders: Ahmet Kalaycı (Istanbul, Türkiye) | Zahra Kalaycı (Marmara University)
+- Core Thesis: Rail-agnostic, stablecoin-agnostic, chain-agnostic coordination operating system bridging autonomous AI agents, programmable milestone escrow, and real-world cross-border commerce.
+- Status: Whitepaper v3.2, Nov 2026. Pilot planned, not executed.
+
+## Core Architecture - Design Status
+- Escrow: Deterministic 60%/40% milestone escrow DESIGN. Primary settlement for pilot: USDC. Architecture supports USDT, EURC, $SPARKLET. No deployed contract claimed as live in v3.2.
+- AI Agent Interface: ARCSTRA MCP Server - Design / Research phase. Model Context Protocol tooling for agent orchestration.
+- Privacy: Clinical imaging in AES-256 vault OFF-chain. Only SHA-256 hash ON-chain. GDPR Article 17 crypto-shredding supported, legal review ongoing. No HIPAA claim. No Zero-PHI claim.
+- Settlement: Polygon / Sepolia target for pilot, evolving to Arc. x402 integration research phase, not live.
+- Governing Rule: Language models may propose economic actions. Deterministic systems must authorize them.
+
+## Flagship Real-World Vertical - Planned Pilot
+- Pilot Clinic: Gezer Dent, Kurtköy, Pendik, Istanbul - Sabiha Gökçen Airport (SAW) corridor.
+- Pilot Status: PLANNED, NOT YET EXECUTED. No patients enrolled, no money escrowed, no treatment completed as of Nov 2026.
+- Pilot Design: 10 patients, $172,963 GMV, $17,296 per patient.
+- Visit 1: $10,378 (60%) released in full after verification.
+- Visit 2: $6,918 (40%) released in full after verification.
+- Healing: 4-6 months between visits.
+- Protocol: Funds release only after verified clinical progress, not after clinic approval. Dispute window 72h, Reviewer finding period 5 business days, Refund within 2 business days of authorization. Released funds cannot be clawed back by code.
+- Relationships: No partnership claimed with Circle, Arc, Thunes, Tilia, Upland, Tether. ARCSTRA builds on public tooling.
+- Circle: Only formal interaction - Grant proposal via Questbook, Proposal ID 6a1a9c3a22bc41779b9e800d. Grant not awarded.
+- Upland: Independent participant since Mar 2020. Founder of ISTANBUL Metaventure as player / builder. No partnership, no employment, no endorsement from Upland Inc.
+
+## Research Timeline - Research History, Not Live Product Claims
+- Full Page: https://drarcstra.com/research.html
+- 2017 - IEEE - Brain: Effects of aerobic capacity, age and gender on brain neural matter. 2017 EBBT, IEEE. DOI: 10.1109/EBBT.2017.7956785. Authors: Zahra Mortezaei, Ahmet Kalaycı, Taylan Hayri Balcıoğlu, Adil Deniz Duru, Hasan Birol Çotuk. Proves: Team history in measurement / verification since 2017. Does NOT prove: Dental escrow.
+- 2025 - Bursa - Cannabis + Coordination: 2nd International Multidisciplinary Environment and Cannabis Congress, 15-16 Dec 2025, Bursa Uludağ University. 3 Papers + 1 Forum Talk. Proves: Coordination model studied outside health (Producer + Lab + Buyer = Patient + Clinic + Escrow). Does NOT prove: Cannabis product / treatment sale. No medical advice.
+- 2026 - Erzurum + Riva - VR + Performance: Erzurum 3-5 Apr 2026 Design, 10 VR exercises. Riva 13-15 Oct 2026 Results, 20 goalkeepers, 8 weeks, VR group -8.10 sec, p=0.004 as reported by team. Proves: Measure - Verify - Pay logic tested in VR. Does NOT prove: VR used in dental treatment.
+- 2020-2026 - Upland - Coordination Lab: Independent player history since Mar 2020. Istanbul launch 29 Oct 2026. Proves: Location + identity + ownership coordination tested. Does NOT prove: Upland partnership, NFT collateral, yield promise.
+- Gezer Dent Experience: Clinic website lists 35+ years / 25,000+ procedures. That figure is a 7-year-old record. Current figure being updated to 42+ years / 30,000+ procedures pending clinic confirmation. New figure will not be used without clinic confirmation.
+- Whitepaper v3.2 aligned.
+
+## Roadmap
+- Phase A - Agent Economy Foundation - COMPLETED June 2026
+- Phase B - Agent Reputation System - Target Q4 2026
+- Phase C - x402 Integration - Target Q1 2027
+- Phase D - ARCSTRA Agent Runtime - Target Q1-Q2 2027
+- Phase E - Agent Marketplace - Target Q2 2027
+- Phase F - Agent Economic Operating System - Target Q3 2027+
+
+## Manifesto
+- Pipes Are Not the Economy. Coordination Is.
+- Circle builds pipes. Respect. Pipes move value. Coordination decides when value should move.
+- ARCSTRA builds on public Circle / Arc tooling. No partnership claimed. ARCSTRA adds verification, evidence, dispute handling on top of settlement rails.
+- ARCSTRA remembers. ARCSTRA settles. ARCSTRA learns.

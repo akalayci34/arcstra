@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARCSTRA — Economic Operating System Dashboard</title>
+  <style>
+    :root { --bg: #0b0f19; --card: #131a2a; --border: #1f293d; --text: #e2e8f0; --muted: #94a3b8; --accent: #38bdf8; --green: #10b981; --amber: #f59e0b; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 24px; max-width: 1200px; margin: 0 auto; }
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px; }
+    h1 { font-size: 20px; letter-spacing: 0.5px; }
+    .badge { padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: rgba(16,185,129,0.15); color: var(--green); border: 1px solid rgba(16,185,129,0.3); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+    .card h3 { font-size: 13px; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
+    .val { font-size: 26px; font-weight: 700; color: #fff; }
+    .sub { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-weight: 600; }
+    .tag { padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; background: #1e293b; color: var(--accent); }
+    .tag.RELEASED { color: var(--green); background: rgba(16,185,129,0.12); }
+    .tag.LOCKED { color: var(--amber); background: rgba(245,158,11,0.12); }
+    button { background: var(--accent); color: #0b0f19; border: none; padding: 8px 14px; border-radius: 8px; font-weight: 600; cursor: pointer; }
+    button:hover { opacity: 0.9; }
+    code { font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px; color: #cbd5e1; }
+    a.explorer { display:inline-block; margin-left:8px; padding:2px 8px; border-radius:6px; background:rgba(56,189,248,0.15); color:#38bdf8; text-decoration:none; font-size:11px; font-weight:600; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>ARCSTRA <span style="color:var(--accent)">//</span> Economic Runtime</h1>
+      <div class="sub">Rail-Agnostic Treasury & Event-Sourced Coordination Ledger</div>
+    </div>
+    <div style="display:flex; gap:10px; align-items:center;">
+      <span id="healthBadge" class="badge">Bağlanıyor...</span>
+      <button onclick="loadAll()">Yenile</button>
+    </div>
+  </header>
+
+  <div class="grid" id="treasuryCards"></div>
+
+  <div class="card" style="margin-bottom:24px;">
+    <h3>Aktif & Tamamlanan Emanetler (Escrows)</h3>
+    <table>
+      <thead><tr><th>ID</th><th>Uygulama</th><th>Zincir</th><th>Görev</th><th>Tutar</th><th>Durum</th></tr></thead>
+      <tbody id="escrowBody"><tr><td colspan="6" style="color:var(--muted)">Yükleniyor...</td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Canlı Olay Defteri (Immutable Ledger — PostgreSQL)</h3>
+    <table>
+      <thead><tr><th>Zaman</th><th>Olay Tipi</th><th>Detay / Kanıt (txHash / Payload)</th></tr></thead>
+      <tbody id="ledgerBody"><tr><td colspan="3" style="color:var(--muted)">Yükleniyor...</td></tr></tbody>
+    </table>
+  </div>
+
+  <script>
+    async function loadAll() {
+      try {
+        const [hRes, tRes, lRes] = await Promise.all([
+          fetch("/health"), fetch("/treasury"), fetch("/ledger")
+        ]);
+        const health = await hRes.json();
+        const treasury = await tRes.json();
+        const ledger = await lRes.json();
+
+        document.getElementById("healthBadge").textContent =
+          health.status === "healthy" ? "● PostgreSQL Bağlı (Canlı)" : "● Bağlantı Hatası";
+
+        const cards = document.getElementById("treasuryCards");
+        cards.innerHTML = "";
+        for (const [chain, info] of Object.entries(treasury.chains || {})) {
+          const bals = Object.entries(info.balances || {}).map(([k, v]) => `${v} ${k}`).join("  |  ");
+          cards.innerHTML += `
+            <div class="card">
+              <h3>${chain} Hazinesi (${info.network})</h3>
+              <div class="val">${bals || "0"}</div>
+              <div class="sub">Escrow Kilitli: <strong>${info.locked} USDC</strong></div>
+            </div>`;
+        }
+
+        const eBody = document.getElementById("escrowBody");
+        if (!treasury.escrows || treasury.escrows.length === 0) {
+          eBody.innerHTML = `<tr><td colspan="6" style="color:var(--muted)">Henüz escrow kaydı yok.</td></tr>`;
+        } else {
+          eBody.innerHTML = treasury.escrows.slice().reverse().map(e => `
+            <tr>
+              <td><code>${e.id}</code></td>
+              <td><span class="tag">${e.app}</span></td>
+              <td>${e.chain}</td>
+              <td>${e.taskId}</td>
+              <td><strong>${e.amount} USDC</strong></td>
+              <td><span class="tag ${e.status}">${e.status}</span></td>
+            </tr>`).join("");
+        }
+
+        const lBody = document.getElementById("ledgerBody");
+        lBody.innerHTML = ledger.slice().reverse().map(item => {
+          const { id, time, event_type, ...details } = item;
+          const t = new Date(time).toLocaleTimeString("tr-TR");
+          let explorerBtn = "";
+          if (details.txHash && !String(details.txHash).startsWith("test-tx")) {
+            const url = details.chain === "ETH"
+              ? `https://sepolia.etherscan.io/tx/${details.txHash}`
+              : `https://explorer.solana.com/tx/${details.txHash}?cluster=devnet`;
+            const label = details.chain === "ETH" ? "Etherscan'de Gör ↗" : "Solana Explorer ↗";
+            explorerBtn = ` <a class="explorer" href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+          }
+          return `
+            <tr>
+              <td style="white-space:nowrap; color:var(--muted)">${t}</td>
+              <td><span class="tag">${event_type}</span></td>
+              <td><code>${JSON.stringify(details)}</code>${explorerBtn}</td>
+            </tr>`;
+        }).join("");
+      } catch (err) {
+        document.getElementById("healthBadge").textContent = "● API Erişilemiyor";
+      }
+    }
+    loadAll();
+    setInterval(loadAll, 5000);
+  </script>
+</body>
+</html>

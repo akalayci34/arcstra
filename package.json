@@ -1,0 +1,37 @@
+{
+  "name": "arcstra",
+  "version": "1.0.0",
+  "description": "Arcstra - ARCSTRA Coordination Escrow",
+  "license": "MIT",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node apps/api/index.js",
+    "api": "node apps/api/index.js",
+    "wallet:create": "node scripts/create-wallet.js",
+    "wallet:check": "node scripts/check-wallet.js",
+    "env:check": "node -e \"require('dotenv').config(); console.log(process.env.CIRCLE_WALLET_ID)\"",
+    "prepare": "husky install"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "@circle-fin/adapter-viem-v2": "^1.11.1",
+    "@circle-fin/bridge-kit": "^1.10.1",
+    "@circle-fin/developer-controlled-wallets": "^10.5.5",
+    "@solana/web3.js": "^1.98.0",
+    "axios": "^1.16.1",
+    "dotenv": "^17.4.2",
+    "ethers": "^6.16.0",
+    "express": "^5.2.1",
+    "pg": "^8.21.0",
+    "uuid": "^14.0.0",
+    "viem": "^2.51.3"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.0",
+    "husky": "^8.0.0",
+    "nodemon": "^3.1.14"
+  }
+}

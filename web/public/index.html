@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARCSTRA | Coordination Operating System for the Agentic Economy</title>
+<meta name="description" content="ARCSTRA - Dr. ARCSTRA: International dental patients escrow system. Planned pilot with Gezer Dent, Kurtköy, Istanbul. 60/40 USDC milestone escrow. Whitepaper v3.2.">
+<style>
+  :root{--bg:#0a0f1e;--card:#111a2e;--line:#24314f;--text:#e8ecf5;--muted:#9aa7c2;--accent:#4da3ff;--green:#2ecc71;--amber:#f5b301}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 18px 60px}
+  header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;max-width:1000px;margin:0 auto;flex-wrap:wrap;gap:12px}
+  .logo{font-weight:800;letter-spacing:.08em;font-size:18px} .logo span{color:var(--accent)}
+  nav{display:flex;gap:18px;flex-wrap:wrap;font-size:14px} nav a{color:var(--muted);text-decoration:none} nav a.active{color:var(--accent);font-weight:700} nav a:hover{color:#fff}
+  .toggle{display:flex;gap:8px;margin:14px 0 20px} .toggle button{border:1px solid var(--line);background:transparent;color:var(--text);padding:8px 16px;border-radius:999px;cursor:pointer;font-weight:700} .toggle button.active{background:var(--accent);color:#04122a;border-color:var(--accent)}
+  h1{font-size:36px;line-height:1.15;margin:8px 0} h2{font-size:24px;margin:0 0 10px} h3{font-size:18px;margin:16px 0 6px}
+  .lead{color:var(--muted);font-size:18px} .quote{border-left:3px solid var(--accent);padding-left:14px;color:#dbe6ff;margin:20px 0}
+  .card{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:22px;margin:18px 0}
+  .notice{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:16px 18px;margin:18px 0} .notice b{color:var(--amber)} .notice .ok{color:var(--green)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px} @media(max-width:680px){.grid{grid-template-columns:1fr} h1{font-size:28px}}
+  .step{border:1px solid var(--line);border-radius:12px;padding:16px;background:#0d1526} .step b{font-size:16px} .step .amt{color:var(--green);font-weight:800;font-size:18px}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:12px;color:var(--muted);margin:2px 4px 2px 0}
+  .btn{display:inline-block;background:var(--accent);color:#04122a;padding:11px 18px;border-radius:999px;text-decoration:none;font-weight:800} .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+  .foot{color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:28px;padding-top:16px}
+  .hidden{display:none} ul{padding-left:18px} li{margin:6px 0} code{background:#0d1526;border:1px solid var(--line);padding:2px 6px;border-radius:6px;font-size:13px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">ARCSTRA <span>• Dr. ARCSTRA</span></div>
+  <nav>
+    <a href="/" class="active">Ana Sayfa / Home</a>
+    <a href="/research.html" style="color:#4da3ff;font-weight:700;">Araştırma / Research</a>
+    <a href="/manifesto.html">Manifesto</a>
+    <a href="/llms.txt">llms.txt</a>
+  </nav>
+</header>
+
+<div class="wrap">
+  <div class="toggle">
+    <button id="btn-tr" class="active" onclick="showLang('tr')">TR • Türkçe</button>
+    <button id="btn-en" onclick="showLang('en')">EN • English</button>
+  </div>
+
+  <!-- ================= TR ================= -->
+  <div id="lang-tr">
+    <div class="pill">Gezer Dent, Kurtköy, Pendik, İstanbul</div>
+    <div class="pill">Marmara Üniversitesi Araştırması</div>
+    <div class="pill">Ahmet KALAYCI - Zahra KALAYCI • @akalayci34</div>
+    <h1>Sağlık, Koordine Edildi.<br>Güven, Sistemle Garanti Altında.</h1>
+    <p class="lead">Dr. ARCSTRA, uluslararası diş hastaları için bir Sağlık Emanet (Escrow) Sistemidir.</p>
+    <div class="quote">Kliniğe güvenmek zorunda değilsin. Hastaya güvenmek zorunda değilsin.<br>Sisteme güven. ARCSTRA hatırlar. ARCSTRA öder. ARCSTRA öğrenir.</div>
+
+    <div class="notice"><b>Durum Etiketi:</b> Tasarım &amp; Pilot Planlama Aşaması — Whitepaper v3.2, Kasım 2026. <b>Canlı hasta işlemi yok. Deploy edilmiş emanet sözleşmesi yok.</b> Upland Inc., Circle veya Thunes ile kurumsal ortaklık iddia edilmemektedir.<br><span class="ok">Bu sayfadaki her rakam, pilot tasarımıdır, gerçekleşmiş ciro değildir.</span></div>
+
+    <div class="card">
+      <h2>Dr. ARCSTRA Nedir?</h2>
+      <p><b>Sorun:</b> Hasta peşin öder, tedavi yapılmaz diye korkar. Klinik tedavi yapar, ödeme gelmez diye korkar. İkisi de bekler, ikisi de risk alır.</p>
+      <p><b>Çözüm:</b> Para, tedaviden önce emanette kilitlenir. Sadece doğrulanmış aşamalar tamamlanınca serbest bırakılır.</p>
+      <p><b>Cüzdan değil. Ödeme linki değil. Bir koordinasyon sistemi.</b><br>Kimlik → Anlaşma → Emanet → Tedavi → Doğrulama → Ödeme</p>
+      <p>Ödeme: USDC / USDT / EURC / $SPARKLET. Zincirden bağımsız tasarım.</p>
+    </div>
+
+    <div class="card">
+      <h2>Nasıl Çalışıyor? — 60 / 40 Modeli</h2>
+      <p><b>Gezer Dent Pilotu (Planlı): 172.963 $ Planlı GMV, 10 Hasta</b><br>Hasta Başı: <b>17.296 $</b></p>
+      <div class="grid">
+        <div class="step"><b>1. Anlaşma Kilitlenir</b><br>Hasta + Klinik, plan, fiyat ve takvimde anlaşır. Proforma, bağlayıcı anlaşmaya dönüşür.</div>
+        <div class="step"><b>2. Para Emanette Kilitlenir</b><br>Hasta 17.296 $'ı emanete kilitler. Para henüz kliniğe gitmez.</div>
+        <div class="step"><b>3. 1. Ziyaret — İstanbul, Kurtköy</b><br>Hasta Sabiha Gökçen (SAW) üzerinden gelir. 1. Aşama doğrulanır.<br><span class="amt">%60 serbest: 10.378 $</span></div>
+        <div class="step"><b>4. İyileşme — 4 ila 6 Ay</b><br>Hasta evine döner. Sistem bekler.</div>
+        <div class="step"><b>5. 2. Ziyaret — İstanbul</b><br>2. Aşama doğrulanır.<br><span class="amt">%40 serbest: 6.918 $</span></div>
+        <div class="step"><b>İtiraz Varsa</b><br>72 saat itiraz penceresi → 5 iş günü inceleme → 2 iş günü içinde onaylı iade.</div>
+      </div>
+      <p style="color:var(--muted);font-size:14px;">Tedavi doğrulanmazsa, para iade edilir. Önceden güven gerekmez.</p>
+    </div>
+    <!-- UPLAND TR START -->
+    <div class="card">
+      <h2>🦷 Gezer Dent - Upland'de Sanal Klinik</h2>
+      <p><b>Gerçek klinik:</b> Kurtköy, İstanbul. <b>Sanal klinik:</b> Upland'de.<br>Aynı klinik, iki dünyada. Binayı haritada canlı görebilirsin.</p>
+      <p><b>📍 Yarim Tashan Sokak 12, İstanbul - DENTISTRY Binası</b><br><span class="pill">Sahibi: AHMETKALAYCI</span> <span class="pill">Upland - İstanbul</span></p>
+      <p>
+        <a class="btn" href="https://play.upland.me/?prop_id=81560881153984" target="_blank" rel="noopener">Upland'de Kliniği Gör →</a>
+        <a class="btn ghost" href="https://ledger.upland.me/transaction/996432e370abfff544d66af69aaed12e7763dd3f42aaa62843c32eceeb51879f" target="_blank" rel="noopener">Bina İşlemini Doğrula</a>
+      </p>
+      <hr style="border:none;border-top:1px solid var(--line);margin:18px 0;">
+      <p><b>👑 MOLAR KING CROWN - Mint 25 / 100</b><br>FUNKYS ASSETS Koleksiyonu. Gezer Dent'in Upland'deki simgesi. Klinik önüne yerleştirilecek.</p>
+      <p>
+        <a href="https://play.upland.me/nft/outdoor-decor/6599941" target="_blank" rel="noopener" style="color:var(--accent);">Molar King Crown'ı Upland'de Gör</a>
+        &nbsp;•&nbsp;
+        <a href="https://ledger.upland.me/transaction/608f3af2b6f95c8a201daea991a02af821ed30c989343579601a74cc5f4cc1e9" target="_blank" rel="noopener" style="color:var(--accent);">Blockchain'de Doğrula</a>
+      </p>
+      <p style="color:var(--muted);font-size:14px;">Bu bölüm sanal klinik gösterimidir. Canlı hasta işlemi yok. Upland Inc. ile kurumsal ortaklık iddia edilmemektedir.</p>
+    </div>
+    <!-- UPLAND TR END -->
+    <div class="card">
+      <h2>Perde Arkası — Nasıl Çalışıyor?</h2>
+      <h3>1. Ekonomik Kesinlik — Tek Ödeme, Bir Kez</h3>
+      <p>Her tedavi görevi sadece 4 durumdan biriyle biter: Tamamlandı / Reddedildi / Süresi Doldu / Geçersiz Kılındı. Sadece bir kez ödeme gerçekleşebilir. Çift ödeme yok.</p>
+      <h3>2. Olay Kaynağı — Her Karar Tekrar Oynatılabilir</h3>
+      <p>Durum Katmanı: Güncel finansal gerçek. Olay Katmanı: Değişmez tarihçe kaydı. Her işlem yeniden oluşturulabilir.</p>
+      <h3>3. Risk Kontrolü</h3>
+      <p>Her serbest bırakmadan önce hız, tutar anomalisi, yeni cüzdan riski ve davranış sapması kontrol edilir. Yüksek risk = otomatik serbest bırakma yok, insan incelemesi gerekir.</p>
+      <h3>4. Yönlendirme</h3>
+      <p>En uygun işlem yolu ve zincir otomatik seçilir. Hedefler: Polygon / Sepolia, Arc'e doğru evriliyor.</p>
+    </div>
+
+    <div class="card">
+      <h2>Gizlilik — Tıbbi Veriler Gizli Kalır</h2>
+      <ul>
+        <li>Röntgen / CBCT / Tedavi planı: Zincir dışı, AES-256 şifreli kasada saklanır.</li>
+        <li>Zincire sadece SHA-256 hash gider. Hash varlığı kanıtlar, içerik açıklamaz.</li>
+        <li>GDPR Madde 17: Unutulma Hakkı = Anahtarı sil, veri okunamaz hale gelir.</li>
+        <li>Hasta, kimin ne göreceğini kontrol eder. Klinik tedaviyi görür, cüzdan geçmişini görmez.</li>
+      </ul>
+      <p style="color:var(--muted);font-size:14px;">No HIPAA claim. GDPR / KVKK uyumlu tasarım, hukuki inceleme devam ediyor.</p>
+    </div>
+
+    <div class="card">
+      <h2>Neden Gezer Dent?</h2>
+      <p><b>Gezer Dent, Kurtköy, Pendik, İstanbul</b><br>4.7 puan, Google doğrulamalı<br>İmplant, Gülüş Tasarımı, Hollywood Smile, All-on-4, Zirkonyum, Lamina Veneer<br>Uluslararası hastalar: İngiltere, Almanya, Hollanda, Orta Doğu, ABD</p>
+      <p><b>Deneyim:</b> Klinik web sitesinde 35+ yıl / 25.000+ tedavi yazmaktadır. Bu rakam 7 yıl önceki kayıttır. Güncel rakam, klinik onayı ile 42+ yıl / 30.000+ tedavi olarak güncellenmektedir. Klinik onayı olmadan yeni rakam kullanılmaz.</p>
+      <p><b>Hasta Yolculuğu:</b> SAW Havalimanı → Gezer Dent, Kurtköy → İyileşme → Dönüş</p>
+      <p><b>Not:</b> Sındırgı / Düvertepe, Gezer Longevity Hub olarak ayrı bir iyileşme / uzun yaşam ayağıdır. Diş kliniği Kurtköy, Pendik'tedir.</p>
+    </div>
+
+    <div class="card">
+      <h2>Neden Araştırma? — 2017'den Beri</h2>
+      <p>Dr. ARCSTRA bir gecede kurulmadı. Marmara Üniversitesi'nde 9 yıllık Beyin, Vücut ve Performans araştırmasından gelir.</p>
+      <ul>
+        <li><b>2017 — IEEE:</b> Beyin + Egzersiz. DOI: <code>10.1109/EBBT.2017.7956785</code></li>
+        <li><b>2025 — Bursa:</b> Kenevir + Koordinasyon</li>
+        <li><b>2026 — Erzurum + Riva:</b> VR + Performans, p=0.004 (ekip tarafından bildirildi)</li>
+        <li><b>2020-2026 — Upland:</b> Koordinasyon Laboratuvarı, bağımsız oyuncu geçmişi</li>
+      </ul>
+      <a class="btn" href="/research.html">Araştırma Zaman Çizelgesini Gör →</a>
+      <p style="color:var(--muted);font-size:13px;margin-top:10px;">Araştırma geçmişi, canlı ürün iddiası değildir. Detay + kaynak + sınırlar /research.html'de.</p>
+    </div>
+
+    <div class="card">
+      <h2>Hastalar İçin / Klinikler İçin</h2>
+      <div class="grid">
+        <div><b>Hastalar:</b><ul><li>Peşin risk yok. Para kilitlenir, gönderilmez.</li><li>Gizli fiyat yok. Anlaşma bağlayıcıdır.</li><li>Kayıp kayıt yok. Hash'iniz kanıtınızdır.</li></ul></div>
+        <div><b>Klinikler:</b><ul><li>Gelmedi riski yok. Para zaten kilitli.</li><li>Ödeme takibi yok. Aşama doğrulandı = para serbest.</li><li>Sahte yorum yok. Doğrulama zincirde.</li></ul></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>İletişim</h2>
+      <p><b>Dr. ARCSTRA | Gezer Dent, Kurtköy</b><br>Ahmet KALAYCI - Zahra KALAYCI<br>@akalayci34 | drarcstra.com</p>
+      <p>Teknoloji koordinasyonu yeniden düzenler. Koordinasyon kurumları yeniden tasarlar.</p>
+      <p><b>ARCSTRA hatırlar. ARCSTRA öder. ARCSTRA öğrenir.</b></p>
+    </div>
+    <div class="foot">Bu sayfa yatırım tavsiyesi, tıbbi tavsiye veya ortaklık beyanı değildir. Tüm pilot rakamları planlı tasarımdır. Whitepaper v3.2, Kasım 2026.</div>
+  </div>
+
+  <!-- ================= EN ================= -->
+  <div id="lang-en" class="hidden">
+    <div class="pill">Gezer Dent, Kurtköy, Pendik, Istanbul</div>
+    <div class="pill">Marmara University Research</div>
+    <div class="pill">Ahmet KALAYCI - Zahra KALAYCI • @akalayci34</div>
+    <h1>Health, Coordinated.<br>Trust, Guaranteed by System.</h1>
+    <p class="lead">Dr. ARCSTRA is a Health Escrow System for international dental patients.</p>
+    <div class="quote">You don't have to trust the clinic. You don't have to trust the patient.<br>Trust the system. ARCSTRA remembers. ARCSTRA pays. ARCSTRA learns.</div>
+
+    <div class="notice"><b>Status Label:</b> Design &amp; Pilot Planning Phase — Whitepaper v3.2, Nov 2026. <b>No live patient transactions. No deployed escrow contract.</b> No corporate partnership claimed with Upland Inc., Circle, or Thunes.<br><span class="ok">All figures on this page are pilot design, not realized revenue.</span></div>
+
+    <div class="card">
+      <h2>What is Dr. ARCSTRA?</h2>
+      <p><b>Problem:</b> Patient pays upfront, fears treatment won't happen. Clinic treats, fears payment won't come. Both wait, both take risk.</p>
+      <p><b>Solution:</b> Money is locked in escrow before treatment. Released only when verified stages complete.</p>
+      <p><b>Not a wallet. Not a payment link. A coordination system.</b><br>Identity → Agreement → Escrow → Treatment → Verification → Payment</p>
+      <p>Payment: USDC / USDT / EURC / $SPARKLET. Chain-agnostic design.</p>
+    </div>
+
+    <div class="card">
+      <h2>How It Works — 60 / 40 Model</h2>
+      <p><b>Gezer Dent Pilot (Planned): $172,963 Planned GMV, 10 Patients</b><br>Per Patient: <b>$17,296</b></p>
+      <div class="grid">
+        <div class="step"><b>1. Agreement Locked</b><br>Patient + Clinic agree on plan, price, schedule. Proforma becomes binding agreement.</div>
+        <div class="step"><b>2. Money Locked in Escrow</b><br>Patient locks $17,296 in escrow. Money does not go to clinic yet.</div>
+        <div class="step"><b>3. Visit 1 — Istanbul, Kurtköy</b><br>Patient arrives via Sabiha Gökçen (SAW). Stage 1 verified.<br><span class="amt">60% released: $10,378</span></div>
+        <div class="step"><b>4. Healing — 4 to 6 Months</b><br>Patient returns home. System waits.</div>
+        <div class="step"><b>5. Visit 2 — Istanbul</b><br>Stage 2 verified.<br><span class="amt">40% released: $6,918</span></div>
+        <div class="step"><b>If Dispute</b><br>72-hour dispute window → 5-business-day review → 2-business-day approved refund.</div>
+      </div>
+      <p style="color:var(--muted);font-size:14px;">If treatment is not verified, money is refunded. No upfront trust needed.</p>
+    </div>
+    <!-- UPLAND EN START -->
+    <div class="card">
+      <h2>🦷 Gezer Dent - Virtual Clinic in Upland</h2>
+      <p><b>Real clinic:</b> Kurtköy, Istanbul. <b>Virtual clinic:</b> In Upland.<br>Same clinic, two worlds. You can see the building live on the map.</p>
+      <p><b>📍 Yarim Tashan Sokak 12, Istanbul - DENTISTRY Building</b><br><span class="pill">Owner: AHMETKALAYCI</span> <span class="pill">Upland - Istanbul</span></p>
+      <p>
+        <a class="btn" href="https://play.upland.me/?prop_id=81560881153984" target="_blank" rel="noopener">View Clinic in Upland →</a>
+        <a class="btn ghost" href="https://ledger.upland.me/transaction/996432e370abfff544d66af69aaed12e7763dd3f42aaa62843c32eceeb51879f" target="_blank" rel="noopener">Verify Building Tx</a>
+      </p>
+      <hr style="border:none;border-top:1px solid var(--line);margin:18px 0;">
+      <p><b>👑 MOLAR KING CROWN - Mint 25 / 100</b><br>FUNKYS ASSETS Collection. The symbol of Gezer Dent in Upland. To be placed in front of the clinic.</p>
+      <p>
+        <a href="https://play.upland.me/nft/outdoor-decor/6599941" target="_blank" rel="noopener" style="color:var(--accent);">View Molar King Crown in Upland</a>
+        &nbsp;•&nbsp;
+        <a href="https://ledger.upland.me/transaction/608f3af2b6f95c8a201daea991a02af821ed30c989343579601a74cc5f4cc1e9" target="_blank" rel="noopener" style="color:var(--accent);">Verify on Blockchain</a>
+      </p>
+      <p style="color:var(--muted);font-size:14px;">This section is a virtual clinic showcase. No live patient transactions. No corporate partnership claimed with Upland Inc.</p>
+    </div>
+    <!-- UPLAND EN END -->
+    <div class="card">
+      <h2>Behind the Scenes</h2>
+      <h3>1. Economic Finality — One Payment, Once</h3>
+      <p>Each treatment task ends in only one of 4 states: Completed / Rejected / Expired / Invalidated. Only one payment can happen. No double payment.</p>
+      <h3>2. Event Sourcing — Every Decision Replayable</h3>
+      <p>State Layer: current financial truth. Event Layer: immutable history. Every transaction can be rebuilt.</p>
+      <h3>3. Risk Control</h3>
+      <p>Before each release: velocity, amount anomaly, new wallet risk, behavior deviation checked. High risk = no auto-release, human review required.</p>
+      <h3>4. Routing</h3>
+      <p>Best path and chain selected automatically. Targets: Polygon / Sepolia, evolving toward Arc.</p>
+    </div>
+
+    <div class="card">
+      <h2>Privacy — Medical Data Stays Private</h2>
+      <ul>
+        <li>X-ray / CBCT / Treatment plan: Off-chain, AES-256 encrypted vault.</li>
+        <li>Only SHA-256 hash goes on-chain. Hash proves existence, reveals nothing.</li>
+        <li>GDPR Art. 17: Right to be Forgotten = Delete key, data becomes unreadable.</li>
+        <li>Patient controls who sees what. Clinic sees treatment, not wallet history.</li>
+      </ul>
+      <p style="color:var(--muted);font-size:14px;">No HIPAA claim. GDPR / KVKK aligned design, legal review ongoing.</p>
+    </div>
+
+    <div class="card">
+      <h2>Why Gezer Dent?</h2>
+      <p><b>Gezer Dent, Kurtköy, Pendik, Istanbul</b><br>4.7 rating, Google verified<br>Implant, Smile Design, Hollywood Smile, All-on-4, Zirconium, Laminate Veneer<br>International patients: UK, Germany, Netherlands, Middle East, USA</p>
+      <p><b>Experience:</b> Clinic website lists 35+ years / 25,000+ procedures. That figure is a 7-year-old record. Current figure is being updated to 42+ years / 30,000+ procedures pending clinic confirmation. New figure will not be used without clinic confirmation.</p>
+      <p><b>Patient Journey:</b> SAW Airport → Gezer Dent, Kurtköy → Healing → Return</p>
+      <p><b>Note:</b> Sındırgı / Düvertepe is a separate recovery / longevity leg as Gezer Longevity Hub. Dental clinic is in Kurtköy, Pendik.</p>
+    </div>
+
+    <div class="card">
+      <h2>Why Research? — Since 2017</h2>
+      <p>Dr. ARCSTRA was not founded overnight. It comes from 9 years of Brain, Body and Performance research at Marmara University.</p>
+      <ul>
+        <li><b>2017 — IEEE:</b> Brain + Exercise. DOI: <code>10.1109/EBBT.2017.7956785</code></li>
+        <li><b>2025 — Bursa:</b> Cannabis + Coordination</li>
+        <li><b>2026 — Erzurum + Riva:</b> VR + Performance, p=0.004 (as reported by team)</li>
+        <li><b>2020-2026 — Upland:</b> Coordination Lab, independent player history</li>
+      </ul>
+      <a class="btn" href="/research.html">See Research Timeline →</a>
+      <p style="color:var(--muted);font-size:13px;margin-top:10px;">Research history is not a live product claim. Details + sources + limits in /research.html.</p>
+    </div>
+
+    <div class="card">
+      <h2>For Patients / For Clinics</h2>
+      <div class="grid">
+        <div><b>Patients:</b><ul><li>No upfront risk. Money locked, not sent.</li><li>No hidden price. Agreement is binding.</li><li>No lost record. Your hash is your proof.</li></ul></div>
+        <div><b>Clinics:</b><ul><li>No no-show risk. Money already locked.</li><li>No payment chasing. Stage verified = money released.</li><li>No fake reviews. Verification on-chain.</li></ul></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Contact</h2>
+      <p><b>Dr. ARCSTRA | Gezer Dent, Kurtköy</b><br>Ahmet KALAYCI - Zahra KALAYCI<br>@akalayci34 | drarcstra.com</p>
+      <p>Technology rearranges coordination. Coordination redesigns institutions.</p>
+      <p><b>ARCSTRA remembers. ARCSTRA pays. ARCSTRA learns.</b></p>
+    </div>
+    <div class="foot">This page is not investment advice, medical advice, or a partnership statement. All pilot figures are planned design. Whitepaper v3.2, Nov 2026.</div>
+  </div>
+</div>
+
+<script>
+function showLang(l){
+  document.getElementById('lang-tr').classList.toggle('hidden', l!=='tr');
+  document.getElementById('lang-en').classList.toggle('hidden', l!=='en');
+  document.getElementById('btn-tr').classList.toggle('active', l==='tr');
+  document.getElementById('btn-en').classList.toggle('active', l==='en');
+  document.documentElement.lang = l;
+}
+</script>
+</body>
+</html>

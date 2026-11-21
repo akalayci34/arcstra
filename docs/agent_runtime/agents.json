@@ -1,0 +1,17 @@
+{
+  "GrantAgent": {
+    "role": "requester"
+  },
+
+  "ResearchAgent": {
+    "role": "research"
+  },
+
+  "TreasuryAgent": {
+    "role": "treasury"
+  },
+
+  "EscrowAgent": {
+    "role": "escrow"
+  }
+}

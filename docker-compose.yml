@@ -1,0 +1,36 @@
+services:
+  arcstra:
+    build: ./apps/api
+    container_name: arcstra-app
+
+    ports:
+      - "3000:3000"
+
+    depends_on:
+      - postgres
+
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: arcstra
+      DB_USER: arcstra
+      DB_PASSWORD: arcstra123
+
+  postgres:
+    image: postgres:17
+
+    container_name: arcstra-db
+
+    environment:
+      POSTGRES_DB: arcstra
+      POSTGRES_USER: arcstra
+      POSTGRES_PASSWORD: arcstra123
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

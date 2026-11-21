@@ -1,0 +1,1 @@
+ARCSTRA Economy Engine and Event Stream OS are separate bounded contexts and must evolve independently.
