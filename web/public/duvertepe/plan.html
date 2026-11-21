@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kodlama Planı</title>
+<meta name="description" content="Düvertepe / Virgil VR platformu için ne kodlanacak, hangi sırayla ve kim yapacak.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 22V11"/><path d="M12 11c0-4 3-7 7-7 0 4-3 7-7 7Z"/><path d="M12 14c0-3-2.5-5.5-6-5.5 0 3 2.5 5.5 6 5.5Z"/><path d="M8 22c1-1.5 2.5-2 4-2s3 .5 4 2"/></svg>
+      Düvertepe <small>Virgil VR</small>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Ana sayfa</a>
+      <a href="panel.html">Panel</a>
+      <a href="plan.html" class="active">Kodlama Planı</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section style="border-top:0;padding-top:64px">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Kodlama planı ve iş bölümü</span>
+      <h2>Ne kodlanacak, hangi sırayla, kim yapacak</h2>
+      <p class="lead">Posterlerdeki vizyonun tamamı tek seferde yazılmaz. Önce Faz 1 (pilot MVP): Düvertepe'de 20 çoban, 300 hayvan, bir ürün hattı. Blokzincir, token ve yapay zekâ sonraki fazlara kalır.</p>
+    </div>
+
+    <div class="callout" style="margin-bottom:40px">
+      <b>Web sitesi mi, C# uygulaması mı?</b> Web. Çoban telefondan, İstanbul'daki alıcı tarayıcıdan, yatırımcı panelden girecek; masaüstü uygulama kurduramayız. C# yine kullanılıyor: arka uç (sunucu/API) ASP.NET Core ile yazılır. Yani dışı web, içi C#.
+    </div>
+
+    <h3 style="margin-bottom:16px">Kim ne yapar</h3>
+    <div class="who" style="margin-bottom:56px">
+      <div class="card" style="--c:var(--teal)">
+        <div class="avatar">Y</div>
+        <h3>Yiğit · yazılım</h3>
+        <p>Kod yazan taraf. Veritabanı, API, ekranlar, QR, panel, yayına alma.</p>
+        <ul><li>ASP.NET Core API + PostgreSQL</li><li>Web arayüzü (bu site + panel)</li><li>Formlar, QR, raporlar</li><li>Sunucu ve alan adı kurulumu</li></ul>
+      </div>
+      <div class="card" style="--c:var(--gold)">
+        <div class="avatar">A</div>
+        <h3>Ahmet Kalaycı · tasarım, saha, iş</h3>
+        <p>Genel tasarımı ve içeriği belirleyen, sahayı ve paydaşları yöneten taraf. Yazılımın beslendiği gerçek veriyi getirir.</p>
+        <ul><li>Ekranlarda ne görüneceğine karar</li><li>Pilot çoban/hayvan/parsel verisi</li><li>Mandıra, laboratuvar, kooperatif, alıcı görüşmeleri</li><li>Sahada test ve geri bildirim</li></ul>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:16px">Teknoloji seçimi</h3>
+    <div class="card" style="margin-bottom:56px">
+      <div class="stack-row"><b>Katman</b><b>Şimdi (Faz 1)</b><b>Sonra</b></div>
+      <div class="stack-row"><b>Tanıtım sitesi</b><span>Bu HTML/CSS/JS site (statik, ücretsiz yayın: GitHub Pages / Netlify)</span><span>TR/EN dil desteği</span></div>
+      <div class="stack-row"><b>Arka uç</b><span>ASP.NET Core Web API (.NET 8), EF Core</span><span>Arka plan işleri (uydu verisi çekme)</span></div>
+      <div class="stack-row"><b>Veritabanı</b><span>PostgreSQL</span><span>TimescaleDB (sensör zaman serisi)</span></div>
+      <div class="stack-row"><b>Panel / formlar</b><span>Bu panel sayfası, API'ye bağlanarak; mobil uyumlu (PWA)</span><span>Gerekirse ayrı mobil uygulama</span></div>
+      <div class="stack-row"><b>IoT</b><span>Elle giriş + küpe QR'ı</span><span>LoRaWAN tasma, soğuk zincir sensörü</span></div>
+      <div class="stack-row"><b>Karbon</b><span>Parsel + girdi defteri + hesaplayıcı</span><span>Sentinel-2 NDVI, dMRV raporu</span></div>
+      <div class="stack-row"><b>Blokzincir / token</b><span>Yok (veritabanında kayıt yeterli)</span><span>Faz 3: Polygon akıllı kontrat</span></div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:16px">
+      <h3>Görev listesi</h3>
+      <span class="tag" id="totalProgress">—</span>
+    </div>
+    <div class="filters" id="filters">
+      <button type="button" class="on" data-f="all">Hepsi</button>
+      <button type="button" data-f="y">Yiğit</button>
+      <button type="button" data-f="a">Ahmet</button>
+      <button type="button" data-f="b">Birlikte</button>
+    </div>
+    <div id="modules"></div>
+    <p class="note">İşaretlediğin kutular bu tarayıcıda saklanır. Görevleri <code>js/plan.js</code> dosyasındaki listeden değiştirebilirsin.</p>
+
+    <h3 style="margin:56px 0 16px">Ahmet'in dolduracağı tablolar</h3>
+    <p style="color:var(--muted);margin:0 0 16px">Yazılım bu sütunlarla kurulacak. Excel'de bu başlıklarla doldurulursa doğrudan içeri aktarılır.</p>
+    <div class="grid g3">
+      <div class="card"><h3>Çobanlar</h3><ul><li>Ad soyad</li><li>Telefon</li><li>Köy / mahalle</li><li>Deneyim (yıl)</li><li>Uzmanlık (keçi, koyun, sığır)</li><li>Baktığı hayvan sayısı</li></ul></div>
+      <div class="card"><h3>Hayvanlar</h3><ul><li>Küpe numarası</li><li>Tür ve ırk</li><li>Doğum tarihi (yaklaşık)</li><li>Sahibi / çobanı</li><li>Son aşı tarihi</li><li>Günlük süt (L)</li></ul></div>
+      <div class="card"><h3>Parseller</h3><ul><li>Ada / parsel</li><li>Alan (m² veya da)</li><li>Kullanım (bahçe, bağ, mera, konut)</li><li>Ürün deseni</li><li>Son 3 yıl gübre, mazot, sulama</li><li>Toprak analizi var mı</li></ul></div>
+    </div>
+
+    <h3 style="margin:56px 0 16px">Takvim (öneri)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Hafta</th><th>Yiğit</th><th>Ahmet</th><th>Çıktı</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1–2</td><td>Repo, siteyi yayına alma, API iskeleti</td><td>Marka kararı, metinler, fotoğraflar</td><td>Site yayında</td></tr>
+          <tr><td class="num">3–6</td><td>Çoban/hayvan veritabanı, kayıt formları, QR</td><td>Pilot çoban ve hayvan listesi</td><td>İlk 300 hayvan sistemde</td></tr>
+          <tr><td class="num">7–10</td><td>Üretim partisi, QR doğrulama sayfası</td><td>Mandıra süreci, laboratuvar anlaşması</td><td>İlk izlenebilir ürün</td></tr>
+          <tr><td class="num">11–14</td><td>Panel gerçek veri, parsel + karbon defteri</td><td>Parsel verisi, toprak numunesi, alıcı görüşmeleri</td><td>Pilot panel + karbon baz senaryosu</td></tr>
+          <tr><td class="num">15+</td><td>Hata düzeltme, mobil iyileştirme</td><td>Sahada test, geri bildirim</td><td>Faz 1 tamam</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><span>Düvertepe · Virgil VR</span><span>Kodlama planı · taslak</span></div>
+</footer>
+
+<script src="js/plan.js"></script>
+</body>
+</html>

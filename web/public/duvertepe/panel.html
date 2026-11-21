@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Düvertepe Panel</title>
+<meta name="description" content="Sürü, üretim, soğuk zincir ve karbon için canlı izleme paneli (demo veri).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 22V11"/><path d="M12 11c0-4 3-7 7-7 0 4-3 7-7 7Z"/><path d="M12 14c0-3-2.5-5.5-6-5.5 0 3 2.5 5.5 6 5.5Z"/><path d="M8 22c1-1.5 2.5-2 4-2s3 .5 4 2"/></svg>
+      Düvertepe <small>Virgil VR</small>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Ana sayfa</a>
+      <a href="panel.html" class="active">Panel</a>
+      <a href="plan.html">Kodlama Planı</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="dash-head">
+    <div>
+      <span class="eyebrow">Pilot · Düvertepe · HF-2024-001</span>
+      <h2 style="margin-top:8px">Sürü ve üretim paneli</h2>
+    </div>
+    <span class="tag teal" id="clock">—</span>
+  </div>
+
+  <div class="kpis">
+    <div class="card kpi"><div class="label">Hayvan</div><div class="value" id="kAnimals">—</div><div class="delta up">+4 bu ay</div></div>
+    <div class="card kpi"><div class="label">Sürü sağlık skoru</div><div class="value" id="kHealth">—</div><div class="delta up">+1,2 puan</div></div>
+    <div class="card kpi"><div class="label">Günlük süt</div><div class="value" id="kMilk">—</div><div class="delta up">+%6,4 (30 gün)</div></div>
+    <div class="card kpi"><div class="label">Yıllık karbon tutulumu</div><div class="value" id="kCarbon">—</div><div class="delta" style="color:var(--muted)">5 da · tahmini</div></div>
+  </div>
+
+  <div class="dash-grid">
+    <div class="card">
+      <div class="panel-title"><h3>Günlük süt verimi · son 30 gün (L)</h3><span class="tag gold">Sağım kayıtları</span></div>
+      <svg class="chart" id="milkChart" viewBox="0 0 640 220" preserveAspectRatio="none" role="img" aria-label="Son 30 günün günlük süt verimi çizgi grafiği"></svg>
+    </div>
+    <div class="card">
+      <div class="panel-title"><h3>Sensörler</h3><span class="tag">IoT</span></div>
+      <div class="result-rows" id="sensors" style="margin-top:0"></div>
+    </div>
+  </div>
+
+  <div class="dash-grid">
+    <div class="card">
+      <div class="panel-title"><h3>Hayvanlar</h3><span class="tag">Dijital ikiz</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Küpe no</th><th>Irk</th><th class="r">Yaş</th><th class="r">Süt (L/gün)</th><th class="r">Sağlık</th><th>Durum</th></tr></thead>
+          <tbody id="animals"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="panel-title"><h3>Parti doğrulama (QR)</h3></div>
+      <p style="color:var(--muted);font-size:14px;margin:0 0 12px">Tüketicinin ürün etiketindeki QR'ı okuttuğunda göreceği ekranın taslağı.</p>
+      <input type="text" id="batchInput" value="M-220524-01" aria-label="Parti numarası">
+      <div id="trace" style="margin-top:14px"></div>
+    </div>
+  </div>
+
+  <div class="mock-banner">Bu sayfadaki tüm rakamlar örnek (sahte) veridir. Gerçek veri, Kodlama Planı'ndaki "Panel" modülüyle API'den gelecek.</div>
+  <div style="height:64px"></div>
+</main>
+
+<footer>
+  <div class="wrap"><span>Düvertepe · Sındırgı / Balıkesir</span><span>Demo panel</span></div>
+</footer>
+
+<script src="js/panel.js"></script>
+</body>
+</html>
