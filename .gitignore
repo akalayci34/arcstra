@@ -14,3 +14,6 @@ data/identities.json
 **/escrow.json
 **/ledger.json
 **/payment_intents.json
+Zahra_Hanım_PRIVATE.md
+*.private.md
+.env
